@@ -1,0 +1,190 @@
+" ~/dot_files/nvim/init.vim
+" OR
+" ~/.config/nvim/init.vim
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" NeoVim 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Make NeoVim use the same runtime directory as vim
+" I'm not sure if this is entirely safe,
+" but it is advised by the NeoVim manual `:h nvim`
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath=&runtimepath
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Plug 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" To install Plug run:
+"   !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
+"      https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+"
+" For plugins that require python run:
+"   !pip3 install --user --upgrade pynvim
+" Then to check the installation run:
+"   :checkhealth
+
+call plug#begin('~/.vim/plugged')
+
+" General Plugs 
+Plug 'mhinz/vim-signify'
+Plug 'w0rp/ale'
+Plug 'godlygeek/tabular'
+Plug 'chriskempson/base16-vim'
+
+" Language Specific Plugs
+" Keep an eye on the Language Service Protocol
+" Rust
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
+" Pandoc
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+" C# (csharp)
+Plug 'OmniSharp/omnisharp-vim'
+" R (rlang)
+Plug 'jalvesaq/Nvim-R'
+" Haskell
+Plug 'neovimhaskell/haskell-vim'
+
+" All Plugs must be added before the following line
+call plug#end()
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Visual 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use the the base16-colour-scheme
+" Works best if the terminal is themed using a base16 theme.
+colorscheme base16-default-dark
+" Show a few lines of context around the cursor.  Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+" Show the line number column (also deliminates the sign column).
+set background=dark
+" Always show the status line
+set laststatus=2
+" Customise the display of non-visual characters in list mode.
+set listchars=tab:>-,trail:-,nbsp:+
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Misc
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set nocompatible
+set signcolumn=yes
+filetype plugin indent on
+set autoread
+set backspace=indent,eol,start
+set belloff=all
+set directory-=.
+set encoding=utf-8
+set nofsync
+set formatoptions=tcqj
+set wildignorecase
+set wildmenu
+set wildmode=longest:full,full
+" Allow switching the active buffer without saving.
+set hidden
+" Disable modelines as they are not secure
+set nomodeline
+" Jump to previous place in buffers when opening them.
+autocmd BufReadPost *
+  \ if line("'\"") >= 1 && line("'\"") <= line("$") |
+  \   exe "normal! g`\"" |
+  \ endif
+" Use <leader>c to start searching for cheat sheets
+nnoremap <leader>c :find ~/dot_files/cheatsheets/**/*
+" If trying to open a non-existing file with gf, then create it
+map gf :e %:h/<cfile><CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Searching
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Ignore the case of searches
+set ignorecase 
+" , unless the term contains uppercase characters.
+set smartcase
+set hlsearch
+set incsearch
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Markdown 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Settings for vim's inbuilt markdown syntax and filetype
+" plugins
+let g:markdown_fenced_languages = ['vim', 
+            \ 'rust',
+            \ 'r',
+            \ 'c',
+            \ 'cpp',
+            \ 'haskell',
+            \ 'cs' ]
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Tabstop Settings
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" How much space should a tab character occupy (at most)
+set tabstop=4
+" Use tabstop as the shiftwidth value
+set shiftwidth=0
+" Insert spaces instead of tabs in insert mode. Use spaces for indents
+set expandtab
+set autoindent
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-pandoc
+" vim-pandoc-syntax
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Disable all of the keyboard mappings
+let g:pandoc#keyboard#use_default_mappings=0
+" Disable the hyper-text follow keyboard mappings
+let g:pandoc#modules#disabled = ["hypertext"]
+" Disable the unsettling concealed syntax highlighting.
+let g:pandoc#syntax#conceal#use = 0
+" Highlight all these languages if they appear in labeled
+" verbatim (code) blocks.
+let g:pandoc#syntax#codeblocks#embeds#langs = ["bash=sh",
+            \ "rust",
+            \ "r",
+            \ "cpp",
+            \ "c",
+            \ "haskell",
+            \ "vim",
+            \ "cs" ]
+" Leave the table of contents bar open.
+let g:pandoc#toc#close_after_navigating = 0
+
+augroup pandoc_ft 
+  autocmd!
+  autocmd BufRead,BufNewFile *.{md} setlocal filetype=pandoc.markdown
+  autocmd Filetype pandoc setlocal spell
+" Fix a bug in the pandoc plugin
+  autocmd Filetype pandoc syntax spell toplevel	
+augroup END
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" signify
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Only use git. Don't waste time searching for other VCS.
+let g:signify_vcs_list = ['git']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" omnisharp 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use the faster stdio server (instead of the http one)
+let g:OmniSharp_server_stdio = 1
+" Use the Windows OmniSharp executable (for Windows Subsystem for Linux)
+let g:OmniSharp_server_path = '~/personal_files/win_install/omnisharp-win-x64/OmniSharp.exe'
+" If using the Windows executable WSL paths must be transalted.
+let g:OmniSharp_translate_cygwin_wsl = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-racer 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Do better
+let g:racer_experimental_completer = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" nvim-r 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Don't open an external xterm for the R console.
+let R_in_buffer=1
+

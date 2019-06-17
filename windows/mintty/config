@@ -1,0 +1,19 @@
+# %APPDATA%/wsltty/config
+# To use common configuration in %APPDATA%/mintty, simply remove this file
+FontHeight=11
+Transparency=off
+CursorType=block
+
+ThemeFile=base16-monokai.minttyrc
+
+Term=xterm-256color
+BoldAsFont=yes
+BoldAsColour=yes
+AllowBlinking=no
+Font=Consolas
+FontWeight=400
+FontIsBold=no
+FontSmoothing=full
+Columns=168
+Rows=43
+
