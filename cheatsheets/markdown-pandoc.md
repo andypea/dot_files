@@ -20,7 +20,7 @@ pandoc --standalone --filter=pandoc-citeproc --output markdown.md.pdf markdown.m
 
 ## Paragraphs {#section-paragraphs}
 
-Single line-breaks are treated as space,
+Single line-breaks are treated as a space, 
 so this text will appear on the same line.
 
 The blank line denotes the start of a new paragraph.
@@ -85,7 +85,7 @@ Term 2 with *inline markup*
 
 ## Tables
 
-These don't need to be aligned.
+The original table text does not need to be aligned, but it's a good idea.
 
 | Right   | Left   | Default   | Center   |
 | ------: | :----- | --------- | :------: |
