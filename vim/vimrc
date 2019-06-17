@@ -1,6 +1,6 @@
-" ~/dot_files/nvim/init.vim
+" ~/dot_files/vim/vimrc
 " OR
-" ~/.config/nvim/init.vim
+" ~/.vimrc
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " NeoVim 
@@ -12,7 +12,7 @@ set runtimepath^=~/.vim runtimepath+=~/.vim/after
 let &packpath=&runtimepath
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Plug 
+" Plugins (managed by plug.vim)
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " To install Plug run:
 "   !curl -fLo ~/.vim/autoload/plug.vim --create-dirs \
@@ -32,7 +32,7 @@ Plug 'godlygeek/tabular'
 Plug 'chriskempson/base16-vim'
 
 " Language Specific Plugs
-" Keep an eye on the Language Service Protocol
+" Keep an eye out for future Language Service Protocol plugins
 " Rust
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
@@ -58,7 +58,7 @@ colorscheme base16-default-dark
 " Show a few lines of context around the cursor.  Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
-" Show the line number column (also deliminates the sign column).
+" Display nicely on terminals with dark backgrounds
 set background=dark
 " Always show the status line
 set laststatus=2
@@ -68,24 +68,29 @@ set listchars=tab:>-,trail:-,nbsp:+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-set nocompatible
+" Set the maximum textwidth to 80 characters.
+set textwidth=80
+" Always display the signcolumn, so the scree doesn't jump around.
 set signcolumn=yes
+" Load the relevant plugins upon opening a buffer.
 filetype plugin indent on
+" Reload files when they have been changed outside vim.
 set autoread
+" Make backspace more useful.
 set backspace=indent,eol,start
+" Don't ring at me!
 set belloff=all
+" Don't put temporary files in the current directory
 set directory-=.
+" Use UTF8 encoding within vim
 set encoding=utf-8
-set nofsync
-set formatoptions=tcqj
-set wildignorecase
-set wildmenu
-set wildmode=longest:full,full
+" Do a lot more autoformatting
+set formatoptions=tcrj
 " Allow switching the active buffer without saving.
 set hidden
 " Disable modelines as they are not secure
 set nomodeline
-" Jump to previous place in buffers when opening them.
+" Jump to the last used place in buffers when opening them.
 autocmd BufReadPost *
   \ if line("'\"") >= 1 && line("'\"") <= line("$") |
   \   exe "normal! g`\"" |
@@ -100,10 +105,24 @@ map gf :e %:h/<cfile><CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Ignore the case of searches
 set ignorecase 
-" , unless the term contains uppercase characters.
+" unless the term contains uppercase characters.
 set smartcase
+" Highlight search matches
 set hlsearch
+" Show matches as they are typed
 set incsearch
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Wildmenu 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Use the wildmenu to match vim command line entries
+set wildmenu
+" When pressing <tab> once complete to the longest match
+" Upon a second press match to the full length of the 
+" first match.
+set wildmode=longest:full,full
+" Ignore case when wildmenu matching
+set wildignorecase
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown 
@@ -127,6 +146,7 @@ set tabstop=4
 set shiftwidth=0
 " Insert spaces instead of tabs in insert mode. Use spaces for indents
 set expandtab
+" Start new lines with the same indent as the previous ones
 set autoindent
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -156,7 +176,6 @@ augroup pandoc_ft
   autocmd!
   autocmd BufRead,BufNewFile *.{md} setlocal filetype=pandoc.markdown
   autocmd Filetype pandoc setlocal spell
-" Fix a bug in the pandoc plugin
   autocmd Filetype pandoc syntax spell toplevel	
 augroup END
 
