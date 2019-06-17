@@ -1,9 +1,9 @@
 # .DOT. -DASH-
 
-To install, just copy `dot_files/` to your `$HOME` directory and then symlink the `bashrc` file to ~/.bashrc:
+To install, just copy `dot_files/` to your `$HOME` directory and then symlink the `bash/bashrc` file to ~/.bashrc:
 
 ```{.bash}
-  ln -s ~/dot_files/bashrc ~/.bashrc
+  ln -s ~/dot_files/bash/bashrc ~/.bashrc
 ```
 
 If that doesn't work, check that your `~/.bashrc` file is being sourced (by `~/.profile`) when you start a session.
