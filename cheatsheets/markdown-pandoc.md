@@ -139,6 +139,7 @@ Here is a nice paper [@whittaker1973niche].
 Citations require the `--filter pandoc-citeproc` option to be passed when compiling the document.
 The `link-citations: true` option in the YAML is also really nice.
 The citation style is controlled by the `csl` YAML option and the bibliography file is specified by the `bibliography` option.
+The documents bibliography will be place at the end of the document.
 
 # References
 
