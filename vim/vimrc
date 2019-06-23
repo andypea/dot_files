@@ -29,6 +29,9 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-signify'
 Plug 'w0rp/ale'
 Plug 'chriskempson/base16-vim'
+" investigate.vim looks very interesting!
+" it integrates with zeal / dash
+" keith/investigate.vim
 
 " Language Specific Plugs
 " Keep an eye out for future Language Service Protocol plugins
