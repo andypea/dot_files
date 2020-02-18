@@ -29,8 +29,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'mhinz/vim-signify'
 Plug 'w0rp/ale'
 Plug 'chriskempson/base16-vim'
+Plug 'godlygeek/tabular'
 " investigate.vim looks very interesting!
-" it integrates with zeal / dash
 " keith/investigate.vim
 
 " Language Specific Plugs
@@ -47,6 +47,8 @@ Plug 'OmniSharp/omnisharp-vim'
 Plug 'jalvesaq/Nvim-R'
 " Haskell
 Plug 'neovimhaskell/haskell-vim'
+" Mathematica / Wolfram
+Plug 'voldikss/vim-mma'
 
 " All Plugs must be added before the following line
 call plug#end()
@@ -65,7 +67,7 @@ set background=dark
 " Always show the status line
 set laststatus=2
 " Customise the display of non-visual characters in list mode.
-set listchars=tab:>-,trail:-,nbsp:+
+set listchars=tab:>-,trail:_,nbsp:+
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Misc
@@ -155,6 +157,8 @@ set autoindent
 " vim-pandoc
 " vim-pandoc-syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:pandoc#command#autoexec_on_writes = 1
+let g:pandoc#command#autoexec_command = "Pandoc pdf"
 " Disable all of the keyboard mappings
 let g:pandoc#keyboard#use_default_mappings=0
 " Disable the hyper-text follow keyboard mappings
@@ -176,7 +180,7 @@ let g:pandoc#toc#close_after_navigating = 0
 
 augroup pandoc_ft 
   autocmd!
-  autocmd BufRead,BufNewFile *.{md} setlocal filetype=pandoc.markdown
+"  autocmd BufRead,BufNewFile *.{md} setlocal filetype=pandoc.markdown
   autocmd Filetype pandoc setlocal spell
   autocmd Filetype pandoc syntax spell toplevel	
 augroup END

@@ -132,6 +132,10 @@ An inline image ![Image caption](https://upload.wikimedia.org/wikipedia/commons/
 
 Here is a footnote reference ^[Why am I stuck in a footnote?]
 
+The footnote content can also be written elsewhere[^1]
+
+[^1]: I'm here to keep you company.
+
 ## Citations
 
 Here is a nice paper [@whittaker1973niche].
