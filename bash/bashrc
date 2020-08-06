@@ -97,20 +97,21 @@ fi
 export LESS_TERMCAP_mb=$(tput blink; tput setaf 3)
 # Bold
 export LESS_TERMCAP_md=$(tput setaf 4)
-# End Bold and Blinking
-export LESS_TERMCAP_me=$(tput sgr0)
 # Underline
 export LESS_TERMCAP_us=$(tput smul; tput setaf 1)
-# End Underline
-export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 # Standout
 export LESS_TERMCAP_so=$(tput smso)
+
+# End Bold and Blinking
+export LESS_TERMCAP_me=$(tput sgr0)
+# End Underline
+export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
 # End Standout
 export LESS_TERMCAP_se=$(tput rmso)
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
-    test -r ~/dot_files/bash/dircolors && eval "$(dircolors -b ~/dot_files/bash/dircolors)" || eval "$(dircolors -b)"
+    test -r ~/dot_files/bash/dir_colors && eval "$(dircolors -b ~/dot_files/bash/dir_colors)" || eval "$(dircolors -b)"
     alias ls='ls --color=auto'
     alias dir='dir --color=auto'
     alias vdir='vdir --color=auto'
