@@ -11,3 +11,8 @@ If that doesn't work, check that your `~/.bashrc` file is being sourced (by `~/.
 To get `vim` up and running, clone the `Plug` GitHub repository and then run :PlugInstall. 
 Full instructions can be found in the `dot_files/vim/vimrc` file.
 
+
+## Windows
+
+In order to get a sane terminal install wintty.
+
