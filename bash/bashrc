@@ -92,20 +92,21 @@ if ! shopt -oq posix; then
 fi
 
 # Enable coloured output in less (including man)
-# Bold
-export LESS_TERMCAP_mb=$(tput bold; tput setaf 3)
+
 # Blinking
-export LESS_TERMCAP_md=$(tput bold; tput setaf 1)
-# Underline
-export LESS_TERMCAP_us=$(tput smul; tput bold; tput setaf 2)
-# Standout
-export LESS_TERMCAP_so=$(tput bold; tput setaf 0; tput setab 2)
-# End Bold, Blinking and Underline
+export LESS_TERMCAP_mb=$(tput blink; tput setaf 3)
+# Bold
+export LESS_TERMCAP_md=$(tput setaf 4)
+# End Bold and Blinking
 export LESS_TERMCAP_me=$(tput sgr0)
-# End Standout
-export LESS_TERMCAP_se=$(tput rmso; tput sgr0)
+# Underline
+export LESS_TERMCAP_us=$(tput smul; tput setaf 1)
 # End Underline
 export LESS_TERMCAP_ue=$(tput rmul; tput sgr0)
+# Standout
+export LESS_TERMCAP_so=$(tput smso)
+# End Standout
+export LESS_TERMCAP_se=$(tput rmso)
 
 # enable color support of ls and also add handy aliases
 if [ -x /usr/bin/dircolors ]; then
