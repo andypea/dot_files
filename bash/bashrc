@@ -141,7 +141,10 @@ export XDG_CONFIG_HOME="$HOME/dot_files/XDG_CONFIG_HOME"
 
 export LESSHISTFILE="-"
 export EDITOR="vim"
-export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+
+if [[ -f $(which rustc) ]]; then
+   export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
+fi
 export INPUTRC="$HOME/dot_files/bash/inputrc"
 export VIMINIT=":source ~/dot_files/vim/vimrc"
 
