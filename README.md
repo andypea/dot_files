@@ -16,3 +16,9 @@ Full instructions can be found in the `dot_files/vim/vimrc` file.
 
 In order to get a sane terminal install wintty.
 
+Then copy `windows/mintty/config` to `%APPDATA%/wsltty/config`
+
+Then copy the contents of `windows\mintty\base16-mintty\mintty/` to `%APPDATA%/wsltty/themes/`
+
+Finally, run `windows/capslock_to_ctrl.reg` to remap the capslock key to control in Windows.
+
