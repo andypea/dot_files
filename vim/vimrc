@@ -35,7 +35,6 @@ call plug#begin('~/.vim/plugged')
 " General Plugs 
 Plug 'mhinz/vim-signify'
 Plug 'w0rp/ale'
-Plug 'chriskempson/base16-vim'
 Plug 'godlygeek/tabular'
 " investigate.vim looks very interesting!
 " keith/investigate.vim
@@ -65,8 +64,8 @@ call plug#end()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Use the the base16-colour-scheme
 " Works best if the terminal is themed using a base16 theme.
-colorscheme base16-monokai
-"colorscheme base16-default-dark
+set runtimepath+=~/dot_files/vim
+colorscheme base16-monokai-ajp
 " Show a few lines of context around the cursor.  Note that this makes the
 " text scroll if you mouse-click near the start or end of the window.
 set scrolloff=5
