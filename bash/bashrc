@@ -130,6 +130,11 @@ fi
 #alias l='ls -CF'
 if [[ -f $(which --skip-alias nvim 2>/dev/null) ]]; then
     alias vim='nvim'
+    export EDITOR="nvim"
+    export VISUAL="nvim"
+else
+    export EDITOR="vim"
+    export VISUAL="vim"
 fi
 
 export PATH="$HOME/bin:$PATH"
@@ -140,7 +145,6 @@ export PATH="$HOME/.yarn/bin:$HOME/.config/yarn/global/node_modules/.bin:$PATH"
 export XDG_CONFIG_HOME="$HOME/dot_files/XDG_CONFIG_HOME"
 
 export LESSHISTFILE="-"
-export EDITOR="vim"
 
 if [[ -f $(which --skip-alias rustc 2>/dev/null) ]]; then
    export RUST_SRC_PATH="$(rustc --print sysroot)/lib/rustlib/src/rust/src"
