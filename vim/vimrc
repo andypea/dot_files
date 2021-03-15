@@ -220,3 +220,10 @@ let g:racer_experimental_completer = 1
 " Don't open an external xterm for the R console.
 let R_in_buffer=1
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" javascript
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+augroup javascript 
+  autocmd!
+  autocmd Filetype javascript nnoremap <LEADER>t :!yarn test<CR>
+augroup END
