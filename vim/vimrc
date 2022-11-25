@@ -32,29 +32,9 @@ let &packpath=&runtimepath
 
 call plug#begin('~/.vim/plugged')
 
-" General Plugs 
-Plug 'mhinz/vim-signify'
-Plug 'w0rp/ale'
-Plug 'godlygeek/tabular'
-" investigate.vim looks very interesting!
-" keith/investigate.vim
-
-" Language Specific Plugs
-" Keep an eye out for future Language Service Protocol plugins
-" Rust
-Plug 'rust-lang/rust.vim'
-Plug 'racer-rust/vim-racer'
 " Pandoc
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
-" C# (csharp)
-Plug 'OmniSharp/omnisharp-vim'
-" R (rlang)
-Plug 'jalvesaq/Nvim-R'
-" Haskell
-Plug 'neovimhaskell/haskell-vim'
-" Mathematica / Wolfram
-Plug 'voldikss/vim-mma'
 
 " All Plugs must be added before the following line
 call plug#end()
@@ -192,38 +172,3 @@ augroup pandoc_ft
   autocmd Filetype pandoc syntax spell toplevel	
 augroup END
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" signify
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Only use git. Don't waste time searching for other VCS.
-let g:signify_vcs_list = ['git']
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" omnisharp 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Use the faster stdio server (instead of the http one)
-let g:OmniSharp_server_stdio = 1
-" Use the Windows OmniSharp executable (for Windows Subsystem for Linux)
-let g:OmniSharp_server_path = '~/personal_files/win_install/omnisharp-win-x64/OmniSharp.exe'
-" If using the Windows executable WSL paths must be transalted.
-let g:OmniSharp_translate_cygwin_wsl = 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" vim-racer 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Do better
-let g:racer_experimental_completer = 1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nvim-r 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" Don't open an external xterm for the R console.
-let R_in_buffer=1
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" javascript
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-augroup javascript 
-  autocmd!
-  autocmd Filetype javascript nnoremap <LEADER>t :!yarn test<CR>
-augroup END
