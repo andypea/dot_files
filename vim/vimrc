@@ -32,6 +32,9 @@ let &packpath=&runtimepath
 
 call plug#begin('~/.vim/plugged')
 
+" Use release branch (recommend)
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Pandoc
 Plug 'vim-pandoc/vim-pandoc'
 Plug 'vim-pandoc/vim-pandoc-syntax'
