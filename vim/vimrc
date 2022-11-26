@@ -94,7 +94,7 @@ autocmd BufReadPost *
   \   exe "normal! g`\"" |
   \ endif
 " Use <leader>c to start searching for cheat sheets
-nnoremap <leader>c :find ~/dot_files/cheatsheets/**/*
+"nnoremap <leader>c :find ~/dot_files/cheatsheets/**/*
 " If trying to open a non-existing file with gf, then create it
 map gf :e %:h/<cfile><CR>
 
