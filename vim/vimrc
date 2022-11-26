@@ -67,7 +67,7 @@ set listchars=tab:>-,trail:_,nbsp:+
 " Misc
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set the maximum textwidth to 80 characters.
-set textwidth=80
+"set textwidth=80
 " Always display the signcolumn, so the scree doesn't jump around.
 set signcolumn=yes
 " Load the relevant plugins upon opening a buffer.
