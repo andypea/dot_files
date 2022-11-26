@@ -103,6 +103,7 @@ autocmd BufReadPost *
 "nnoremap <leader>c :find ~/dot_files/cheatsheets/**/*
 " If trying to open a non-existing file with gf, then create it
 map gf :e %:h/<cfile><CR>
+set nowrap
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Searching
@@ -157,8 +158,8 @@ set autoindent
 " vim-pandoc
 " vim-pandoc-syntax
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-let g:pandoc#command#autoexec_on_writes = 1
-let g:pandoc#command#autoexec_command = "Pandoc pdf"
+"let g:pandoc#command#autoexec_on_writes = 1
+"let g:pandoc#command#autoexec_command = "Pandoc pdf"
 " Disable all of the keyboard mappings
 let g:pandoc#keyboard#use_default_mappings=0
 " Disable the hyper-text follow keyboard mappings
