@@ -191,7 +191,10 @@ augroup END
 " 'peitalin/vim-jsx-typescript'
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set filetypes as typescriptreact
-autocmd BufNewFile,BufRead *.tsx,*.jsx set filetype=typescriptreact
+autocmd BufNewFile,BufRead *.js set filetype=javascript
+autocmd BufNewFile,BufRead *.jsx set filetype=javascriptreact
+autocmd BufNewFile,BufRead *.ts set filetype=typescript
+autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 'neoclide/coc.nvim', {'branch': 'release'}
