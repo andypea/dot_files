@@ -39,6 +39,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 " Javascript, Typescript and JSX syntax highlighting.
+Plug 'yuezk/vim-js'
 Plug 'maxmellon/vim-jsx-pretty'
 
 " Pandoc
