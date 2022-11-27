@@ -83,7 +83,7 @@ set listchars=tab:>-,trail:_,nbsp:+
 " Set the maximum textwidth to 80 characters.
 "set textwidth=80
 " Always display the signcolumn, so the scree doesn't jump around.
-set signcolumn=yes
+set signcolumn=auto:1-9
 " Load the relevant plugins upon opening a buffer.
 filetype plugin indent on
 " Reload files when they have been changed outside vim.
@@ -360,4 +360,6 @@ nnoremap <silent><nowait> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent><nowait> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent><nowait> <space>p  :<C-u>CocListResume<CR>
+" Set the location of coc-settings.json
+let g:coc_config_home = '~/dot_files/vim/coc'
 
