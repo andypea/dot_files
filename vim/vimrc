@@ -51,6 +51,7 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 Plug 'chriskempson/base16-vim'
 
 " Git gutter signs
+" Should I try coc-git?
 Plug 'airblade/vim-gitgutter'
 
 " All Plugs must be added before the following line
