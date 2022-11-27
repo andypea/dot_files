@@ -195,8 +195,7 @@ augroup pandoc_ft
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" 'leafgarland/typescript-vim'
-" 'peitalin/vim-jsx-typescript'
+" Javascript, Typescript and JSX
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " set filetypes as typescriptreact
 autocmd BufNewFile,BufRead *.js set filetype=javascript
