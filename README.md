@@ -4,6 +4,7 @@ To install, just copy `dot_files/` to your `$HOME` directory and then symlink th
 
 ```{.bash}
   ln -s ~/dot_files/bash/bashrc ~/.bashrc
+  ln -s ~/dot_files/git/gitconfig ~/.gitconfig
 ```
 
 If that doesn't work, check that your `~/.bashrc` file is being sourced (by `~/.profile`) when you start a session.
