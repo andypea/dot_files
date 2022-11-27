@@ -45,6 +45,9 @@ Plug 'vim-pandoc/vim-pandoc-syntax'
 " Base-16 colourschemes
 Plug 'chriskempson/base16-vim'
 
+" Git gutter signs
+Plug 'airblade/vim-gitgutter'
+
 " All Plugs must be added before the following line
 call plug#end()
 
