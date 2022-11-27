@@ -32,6 +32,9 @@ let &packpath=&runtimepath
 
 call plug#begin('~/.vim/plugged')
 
+" Conquer of completion
+" Provides a Language Server Protocol (LSP) interface
+" Facilitates the use of VSCode plugins
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
