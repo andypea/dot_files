@@ -37,6 +37,7 @@ call plug#begin('~/.vim/plugged')
 " Facilitates the use of VSCode plugins
 " Use release branch (recommend)
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+let g:coc_global_extensions = ['coc-json', 'coc-tsserver', 'coc-eslint', 'coc-prettier']
 
 " Javascript, Typescript and JSX syntax highlighting.
 Plug 'yuezk/vim-js'
