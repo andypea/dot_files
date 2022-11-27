@@ -1,6 +1,6 @@
 # .DOT. -DASH-
 
-To install, just copy `dot_files/` to your `$HOME` directory and then symlink the `bash/bashrc` file to ~/.bashrc:
+To install, just copy `dot_files/` to your `$HOME` directory and then symlink the `bash/bashrc` file to `~/.bashrc` and `git/gitconfig` to `~/.gitconfig`:
 
 ```{.bash}
   ln -s ~/dot_files/bash/bashrc ~/.bashrc
