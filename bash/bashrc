@@ -152,8 +152,6 @@ export VIMINIT=":source ~/dot_files/vim/vimrc"
 
 set -o vi
 
-export NETHACKOPTIONS="@$HOME/dot_files/nethack/nethackrc"
-
 #if [ -z "$TMUX" ] && [ ${UID} != 0 ]
 #then
 #    tmux -f ~/dot_files/tmux/tmux.conf new-session -A -s main
