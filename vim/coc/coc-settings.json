@@ -1,4 +1,6 @@
 {
-    "diagnostic.warningSign": ">>"
+    "diagnostic.warningSign": ">>",
+    "coc.preferences.formatOnSave": true,
+    "coc.preferences.formatOnSaveFileTypes": ["js", "jsx", "css", "ts", "tsx", "markdown", "html"]
 }
 
