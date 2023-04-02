@@ -82,7 +82,8 @@ set listchars=tab:>-,trail:_,nbsp:+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Set the maximum textwidth to 80 characters.
 "set textwidth=80
-" Always display the signcolumn, so the scree doesn't jump around.
+" Always display the signcolumn, so the screen doesn't jump around.
+" Allow it to auto-expand from 1 to 9 characters wide.
 set signcolumn=auto:1-9
 " Load the relevant plugins upon opening a buffer.
 filetype plugin indent on
@@ -205,6 +206,7 @@ autocmd BufNewFile,BufRead *.tsx set filetype=typescriptreact
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " 'neoclide/coc.nvim', {'branch': 'release'}
+" Mostly just the suggested settings
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " May need for vim (not neovim) since coc.nvim calculate byte offset by count
 " utf-8 byte sequence.
